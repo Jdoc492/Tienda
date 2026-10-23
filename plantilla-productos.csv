@@ -1,0 +1,49 @@
+﻿id,nombre,precio,precio_antes,categoria,descripcion,foto1,foto2,foto3,foto4,activo
+reloj-inteligente,Reloj inteligente deportivo,119900,189900,Tecnología,"Mide pasos, ritmo cardíaco, sueño y calorías.
+Recibe notificaciones de WhatsApp y llamadas en tu muñeca.
+Batería de hasta 7 días y resistente a salpicaduras.
+Incluye cargador magnético.",productos/demo/reloj-inteligente-1.jpg,productos/demo/reloj-inteligente-2.jpg,,,sí
+audifonos-inalambricos,Audífonos inalámbricos con estuche de carga,69900,119900,Tecnología,"Conexión Bluetooth 5.3 estable y sin cables.
+Hasta 5 horas de música y 20 horas más con el estuche.
+Control táctil y micrófono para llamadas.
+Compatibles con Android y iPhone.",productos/demo/audifonos-inalambricos-1.jpg,productos/demo/audifonos-inalambricos-2.jpg,,,sí
+freidora-de-aire,Freidora de aire 5 litros,239900,329900,Hogar,"Cocina papas, pollo y carnes con hasta 85% menos aceite.
+Capacidad de 5 litros, ideal para 4 a 6 personas.
+Panel digital con 8 programas y temporizador.
+Canasta antiadherente fácil de lavar.",productos/demo/freidora-de-aire-1.jpg,productos/demo/freidora-de-aire-2.jpg,,,sí
+lampara-luna,Lámpara de luna 3D recargable,59900,89900,Hogar,"Luz cálida y blanca con 16 colores y control remoto.
+Recargable por USB, sin cables mientras la usas.
+Incluye base de madera.
+Perfecta para regalar o decorar la habitación.",productos/demo/lampara-luna-1.jpg,productos/demo/lampara-luna-2.jpg,,,sí
+masajeador-cuello,Masajeador de cuello y hombros,99900,149900,Bienestar,"Masaje tipo amasado con calor relajante.
+Alivia la tensión después del trabajo o el gimnasio.
+3 niveles de intensidad.
+Funciona en casa, en la oficina y en el carro.",productos/demo/masajeador-cuello-1.jpg,productos/demo/masajeador-cuello-2.jpg,,,sí
+cepillo-alisador,Cepillo alisador eléctrico,79900,129900,Belleza,"Alisa y da brillo en minutos mientras peinas.
+Cerámica con iones que reduce el frizz.
+Temperatura regulable de 150 °C a 230 °C.
+Se calienta en 60 segundos.",productos/demo/cepillo-alisador-1.jpg,productos/demo/cepillo-alisador-2.jpg,,,sí
+mini-proyector,Mini proyector HD portátil,289900,399900,Tecnología,"Imagen de hasta 120 pulgadas en cualquier pared.
+Conéctalo al celular, USB o HDMI.
+Parlante incorporado.
+Ideal para películas y partidos en casa.",productos/demo/mini-proyector-1.jpg,productos/demo/mini-proyector-2.jpg,,,sí
+humidificador-aromas,Humidificador y difusor de aromas,54900,,Hogar,"Humedece el ambiente y perfuma con aceites esenciales.
+Luz LED de 7 colores.
+Silencioso, ideal para dormir.
+Se apaga solo cuando se acaba el agua.",productos/demo/humidificador-aromas-1.jpg,productos/demo/humidificador-aromas-2.jpg,,,sí
+camara-seguridad,Cámara de seguridad WiFi 360°,109900,159900,Tecnología,"Mira tu casa o negocio desde el celular en tiempo real.
+Gira 360° y tiene visión nocturna.
+Detecta movimiento y te envía alertas.
+Habla y escucha desde la app.",productos/demo/camara-seguridad-1.jpg,productos/demo/camara-seguridad-2.jpg,,,sí
+botella-termica,Botella térmica con indicador de temperatura,44900,69900,Bienestar,"Mantiene bebidas frías 24 horas y calientes 12 horas.
+Tapa con pantalla LED que muestra la temperatura.
+Acero inoxidable, 500 ml.
+No gotea en el bolso.",productos/demo/botella-termica-1.jpg,productos/demo/botella-termica-2.jpg,,,sí
+organizador-maquillaje,Organizador de maquillaje giratorio,64900,,Belleza,"Gira 360° para encontrar todo rápido.
+Capacidad para bases, labiales, brochas y cremas.
+Altura ajustable en varios niveles.
+Fácil de armar y limpiar.",productos/demo/organizador-maquillaje-1.jpg,productos/demo/organizador-maquillaje-2.jpg,,,sí
+kit-herramientas,Kit de herramientas 46 piezas,89900,139900,Herramientas,"Llaves, copas, destornilladores y puntas en un solo maletín.
+Acero al cromo vanadio resistente.
+Ideal para la casa, la moto y el carro.
+Maletín organizado para no perder piezas.",productos/demo/kit-herramientas-1.jpg,productos/demo/kit-herramientas-2.jpg,,,sí
