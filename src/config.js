@@ -21,6 +21,8 @@ const config = {
   // por comas (.csv)" > Publicar, y pega aquí el enlace que te da.
   // Si lo dejas vacío, se usan los productos de src/data/products.js.
   hojaProductos: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXTADsWlODETv-l9VJKmGlVkALl_QoJWxU5LEMlkZGklnv1rOKLiHaKcmV6EFxGhzm7s2q_KHChrlU/pub?output=csv',
+  // URL /exec de la aplicación web de Apps Script de la hoja de pedidos; vacío = no se guarda en hoja
+  hojaPedidos: '',
 };
 
 export const formatoPrecio = (valor) =>

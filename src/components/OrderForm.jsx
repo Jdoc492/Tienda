@@ -31,6 +31,7 @@ const validar = (datos) =>
   Object.fromEntries(Object.entries(reglas).map(([campo, regla]) => [campo, regla(datos[campo])]));
 
 const ESPERA_WHATSAPP = 1800;
+const ESPERA_MAXIMA_ENVIO = 4000;
 
 // Formulario de pedido contra entrega.
 // Al enviarlo: avisa por correo (FormSubmit) y abre WhatsApp con el pedido completo.
@@ -102,27 +103,61 @@ const OrderForm = ({ product, show, onHide, cantidadInicial = 1 }) => {
     setEnviando(true);
     const numero = Date.now().toString().slice(-6);
 
-    // Aviso por correo. Si falla, el pedido igual sale por WhatsApp.
-    try {
-      await fetch(`https://formsubmit.co/ajax/${config.correoPedidos}`, {
+    // Prueba de la autorización de tratamiento de datos, con la hora de Colombia
+    const fecha = new Date().toLocaleString('es-CO', {
+      timeZone: 'America/Bogota', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false,
+    }).replace(',', '');
+    const autorizacion = `Sí - ${fecha}`;
+
+    // Aviso por correo (FormSubmit)
+    const avisoCorreo = fetch(`https://formsubmit.co/ajax/${config.correoPedidos}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        _subject: `Pedido nuevo #${numero} - ${product.name}`,
+        _template: 'table',
+        pedido: numero,
+        producto: product.name,
+        cantidad: datos.cantidad,
+        total: formatoPrecio(total),
+        ...datos,
+        autorizacion_datos: autorizacion,
+      }),
+    });
+
+    // Copia en la hoja de pedidos (Apps Script). Va como texto plano para que
+    // el navegador no haga la consulta previa (CORS) que Apps Script no responde.
+    const copiaHoja = config.hojaPedidos
+      ? fetch(config.hojaPedidos, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
-          _subject: `Pedido nuevo #${numero} - ${product.name}`,
-          _template: 'table',
           pedido: numero,
           producto: product.name,
           cantidad: datos.cantidad,
           total: formatoPrecio(total),
-          ...datos,
-          // Prueba de la autorización de tratamiento de datos
-          autorizacion_datos: 'Sí',
-          fecha_autorizacion: new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }),
+          nombre: datos.nombre,
+          celular: datos.celular,
+          departamento: datos.departamento,
+          ciudad: datos.ciudad,
+          direccion: datos.direccion,
+          barrio: datos.barrio,
+          notas: datos.notas,
+          autorizacion_datos: autorizacion,
         }),
-      });
-    } catch (error) {
-      console.error('No se pudo enviar el aviso por correo:', error);
-    }
+      })
+      : Promise.resolve();
+
+    // Se envían los dos a la vez; si uno falla o tarda más de 4 s, el pedido
+    // igual sigue y sale por WhatsApp.
+    const limite = new Promise((resolver) => setTimeout(resolver, ESPERA_MAXIMA_ENVIO));
+    const resultados = await Promise.race([Promise.allSettled([avisoCorreo, copiaHoja]), limite]);
+    (resultados || []).forEach((resultado, i) => {
+      if (resultado.status === 'rejected') {
+        console.error(i === 0 ? 'No se pudo enviar el aviso por correo:' : 'No se pudo guardar el pedido en la hoja:', resultado.reason);
+      }
+    });
 
     const enlace = enlaceWhatsApp(mensajePedido(numero));
     setEnviando(false);

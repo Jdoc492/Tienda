@@ -55,7 +55,9 @@ const politicas = {
           '• La transportadora que lleva el pedido (nombre, dirección y celular).',
           '• Dropi, la plataforma de logística con la que gestionamos el despacho.',
           '• WhatsApp (Meta Platforms), por donde confirmamos el pedido y te atendemos.',
-          '• FormSubmit, el servicio de correo que nos avisa de cada pedido nuevo. Este servicio puede procesar y guardar los datos en servidores fuera de Colombia.',
+          '• FormSubmit, el servicio de correo que nos avisa de cada pedido nuevo.',
+          '• Google (Google Sheets y Google Workspace), donde guardamos el registro de los pedidos para hacerles seguimiento.',
+          'FormSubmit y Google pueden procesar y guardar los datos en servidores fuera de Colombia.',
         ],
       },
       {
