@@ -22,7 +22,7 @@ const config = {
   // Si lo dejas vacío, se usan los productos de src/data/products.js.
   hojaProductos: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXTADsWlODETv-l9VJKmGlVkALl_QoJWxU5LEMlkZGklnv1rOKLiHaKcmV6EFxGhzm7s2q_KHChrlU/pub?output=csv',
   // URL /exec de la aplicación web de Apps Script de la hoja de pedidos; vacío = no se guarda en hoja
-  hojaPedidos: '',
+  hojaPedidos: 'https://script.google.com/macros/s/AKfycbxHS82xACM3bcliQyO_K7QrRhiJq6-Wmdw9oaYAjp8Th6KoWX2jwKquV-RWWoCsKWs/exec',
 };
 
 export const formatoPrecio = (valor) =>
